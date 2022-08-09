@@ -7,6 +7,11 @@
 
 {% block main_area %}
                 <div id="post-area">
+                    {% if post.category %}
+                        <span class="badge badge-secondary float-right">{{ post.category }}</span>
+                    {% else %}
+                        <span class="badge badge-secondary float-right">미분류</span>
+                    {% endif %}
                     <!-- Post content-->
                     <article>
                         <!-- Post header-->
@@ -18,7 +23,7 @@
                             <!-- Author -->
                             <p class="lead">
                                 by
-                                <a href="#"> 작성자명 쓸 위치</a>
+                                <a href="#">{{ post.author | upper }}</a>
                             </p>
                 
                             <!-- Date/Time-->
