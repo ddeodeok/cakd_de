@@ -1,0 +1,12 @@
+body {
+    background: url('/static/single_pages/images/poppy.jpg') no-repeat center center fixed;
+    /* background: url('/static/single_pages/images/beach.jpg') no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    
+}
+.margin-for-footer {
+    margin-bottom: 130px;
+}
