@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post, Category, Tag
 
@@ -19,6 +19,8 @@ class PostCreate(LoginRequiredMixin,UserPassesTestMixin,CreateView):
         else:
             return redirect('/blog/')
 
+class PostUpdate(LoginRequiredMixin, UpdateView):
+    model = Postfields = ['title','hook_text','content','head_image','file_upload','file_upload','category','tags']
 
 class PostList(ListView):
     model = Post
