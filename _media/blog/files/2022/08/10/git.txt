@@ -1,0 +1,33 @@
+C:\Users\admin>git --version
+git version 2.37.0.windows.1
+
+C:\Users\admin>cd C:\cakd7\gittest
+
+C:\cakd7\gittest>git clone https://github.com/KimJinHyoung/test.git
+Cloning into 'test'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+C:\cakd7\gittest>cd test
+
+C:\cakd7\gittest\test>git add .
+
+C:\cakd7\gittest\test>git commit -m 'commit'
+[main 0acdd33] 'commit'
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+
+C:\cakd7\gittest\test>git push
+info: please complete authentication in your browser...
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 273 bytes | 273.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KimJinHyoung/test.git
+   f92be00..0acdd33  main -> main
+
+C:\cakd7\gittest\test>

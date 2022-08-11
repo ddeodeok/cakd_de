@@ -1,0 +1,36 @@
+from urllib.parse import quote
+import urllib
+from bs4 import BeautifulSoup
+import re
+import pandas as pd
+df_1 = pd.DataFrame(columns=['text'])
+
+
+query = quote(input('검색 할 내용을 입력하세요.'))
+cnt = int(input('원하는 기사의 수를 입력하세요.'))
+start = 1
+ind = 0
+url_link =[]
+text_all =[]
+while cnt > len(url_link):
+    url = f'https://search.naver.com/search.naver?where=news&query={query}&start={str(start)}'
+    html = urllib.request.urlopen(url)
+    bs = BeautifulSoup(html,'lxml')
+    mask = bs.select('.list_news > li > div > div > div > div > a.info')
+    for x in mask:
+        if (cnt >len(url_link)) & (x.get_text() == '네이버뉴스'):
+            url_link.append(x['href'])
+    start += 10
+    
+
+for url in url_link:
+    response = urllib.request.urlopen(url)
+    soup = BeautifulSoup(response, 'lxml')
+    text = soup.select_one('#dic_area')
+    if text == None:
+        text_all.append([])
+    else:
+        text_all.append(text.text)
+
+df_1['text'] = text_all
+df_1
