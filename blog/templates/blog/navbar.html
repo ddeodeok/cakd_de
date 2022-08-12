@@ -25,9 +25,20 @@
       <a href="/blog/">Blog</a>
       <a href="/about_me/">About Me</a>
       <!-- Button trigger modal -->
+      {% if user.is_authenticated %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ user.username }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+        </div>
+      </li>
+      {% else %}
       <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#loginModal" >
           login
       </button>
+      {% endif %}
       </div>
   </div>    
 </nav>
@@ -46,10 +57,10 @@
       <div class="row">
           <div class="col-md-6">
               <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="{% provider_login_url 'google' %}"><i class="fa-brands fa-google"></i>&nbsp&nbsp Log in with Google</a>
-              <button type+"button" class="btn btn-outline-dark btn-block btn-sm"><i class="fa-solid fa-envelope"></i>&nbsp&nbsp Log in with E-mail</button>
+              <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="/accounts/login/"><i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail</a>
           </div>
           <div class="col-md-6">
-              <button type+"button" class="btn btn-outline-dark btn-block btn-sm"><i class="fa-solid fa-envelope"></i>&nbsp&nbsp Sign up with E-mail</button>
+              <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="/accounts/signup/"><i class="far fa-envelope"></i>&nbsp&nbsp Sign up with E-mail</a>
           </div>
       </div>
   </div>
