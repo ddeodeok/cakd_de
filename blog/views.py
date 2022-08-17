@@ -84,6 +84,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 class PostList(ListView):
     model = Post
     ordering = '-pk'
+    paginate_by = 5
     # template_name = 'index.html'
 
     def get_context_data(self,**kwargs):
