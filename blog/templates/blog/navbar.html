@@ -18,12 +18,13 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container">
-    <li class = "navbar-item active">
+    {% comment %} <li class = "navbar-item active"> {% endcomment %}
       <a class="navbar-brand" href="/">Do It Django</a>
-    </li>
+    {% comment %} </li> {% endcomment %}
       <a href="/">Home</a>
       <a href="/blog/">Blog</a>
       <a href="/about_me/">About Me</a>
+      <a href="/program/">Program</a>
       <!-- Button trigger modal -->
       {% if user.is_authenticated %}
       <li class="nav-item dropdown">
