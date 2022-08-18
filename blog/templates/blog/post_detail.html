@@ -87,7 +87,7 @@
                                 {% csrf_token %}
                                 <div class="form-group">
                                     {{ comment_form | crispy }}
-                                    {% comment %} <textarea class="form-group" rows="3"></textarea> {% endcomment %}
+                                    {% comment %} <textarea class="form-control" rows="3"></textarea> {% endcomment %}
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

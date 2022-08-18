@@ -1,15 +1,24 @@
 body {
+    padding-top: 100px;
     background: url('/static/single_pages/images/beach.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover; 
 }
 
 section {
     margin-bottom: 150px;
+  
 }
 
-.card {
+.card1 {
     background-color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* min-width: 0; */
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.25rem;
 }
