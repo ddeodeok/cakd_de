@@ -2,12 +2,11 @@
 {% load static %}
 {% block main_area %}
 
-
 <body>
     <div class="text-center">
         <form action = "ml_result">
             {% for colunm in columns %}
-            <div  class="badge bg-secondary text-white h1" style="width: 11rem;">{{ colunm }}</div>
+            <div  class="badge bg-secondary text-white h1" style="width: 11rem; font-size: 25px">{{ colunm }}</div>
             <input name={{ colunm }}></input>
             {% endfor %}
             <br/>
