@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block main_area %}
+
+
+<body>
+    <div class="text-center">
+        <form action = "ml_result">
+            {% for colunm in columns %}
+            <div  class="badge bg-secondary text-white h1" style="width: 11rem;">{{ colunm }}</div>
+            <input name={{ colunm }}></input>
+            {% endfor %}
+            <br/>
+            <br/>         
+        <button type=submit>Let's Predict</button>
+        </form>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+</body>
+</html>
+{% endblock %}
+{% block widget_area %}
+{% endblock %}
+
+
+
+
+
+
+   {% comment %} <ul>
+                <li>
+                <h4>fare_cat:<input name="fare_cat"></input></h4>
+                </li><li>
+                <h4>age_cat:<input name="age_cat"></input></h4>
+                </li><li> 
+                <h4>family:<input name="family"></input></h4> 
+                </li><li>
+                <h4>sex_female:<input name="sex_female"></input> 
+                </li><li>
+                <h4>sex_male:<input name="sex_male"></input></h4>
+                </li><li>
+                <h4>embarked_C:<input name="embarked_C"></input></h4>
+                </li><li>
+                <h4>embarked_Q:<input name="embarked_Q"></input></h4>
+                </li><li>
+                <h4>embarked_S:<input name="embarked_S"></input></h4>
+                </li>
+            </ul> {% endcomment %}
