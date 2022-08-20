@@ -3,27 +3,75 @@
 {% block main_area %}
 
 <body>
+    <div class="text-center mb-4">
+        <h1>Survival prediction!</h1>
+    </div>
     <div class="text-center">
         <form action = "ml_result">
             {% for colunm in columns %}
-            <div  class="badge bg-secondary text-white h1" style="width: 11rem; font-size: 25px">{{ colunm }}</div>
-            <input name={{ colunm }}></input>
+            <label for="FormControlInput{{ colunm }}"  class="badge bg-info text-white h1" style="width: 10rem; font-size: 24px">{{ colunm }}</label>
+            <input name={{ colunm }} id="FormControlInput{{ colunm }}" placeholder="{{ colunm }}" onfocus="this.placeholder = ''" onblur="this.placeholder='{{ colunm }}'" ></input>
             {% endfor %}
             <br/>
             <br/>         
-        <button type=submit>Let's Predict</button>
+        <button type=submit class='btn btn-lg btn-primary' id='submitbnt'>Let's Predict</button>
         </form>
     </div>
-    <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
 </body>
+<script>
+    const fare_cat = document.querySelector('#FormControlInputfare_cat');
+    fare_cat.addEventListener('keyup', activeEvent);
+
+    const age_cat = document.querySelector('#FormControlInputage_cat');
+    age_cat.addEventListener('keyup', activeEvent);
+
+    const family = document.querySelector('#FormControlInputfamily');
+    family.addEventListener('keyup', activeEvent);
+    
+    const sex_female = document.querySelector('#FormControlInputsex_female');
+    sex_female.addEventListener('keyup', activeEvent);
+    
+    const sex_male = document.querySelector('#FormControlInputsex_male');
+    sex_male.addEventListener('keyup', activeEvent);
+
+    const embarked_C = document.querySelector('#FormControlInputembarked_C');
+    embarked_C.addEventListener('keyup', activeEvent);
+
+    const embarked_Q = document.querySelector('#FormControlInputembarked_Q');
+    embarked_Q.addEventListener('keyup', activeEvent);
+
+    const embarked_S = document.querySelector('#FormControlInputembarked_S');
+    embarked_S.addEventListener('keyup', activeEvent);
+    
+    const sumbitbnt = document.querySelector('#submitbnt');
+    sumbitbnt.disabled = true;
+    
+    function activeEvent() {
+        if(fare_cat.value !== '' && age_cat.value !== '' && family.value !== '' && sex_female.value !== '' && sex_male.value !== '' && embarked_C.value !== '' &&embarked_Q.value!== '' && embarked_S.value !== ''){
+            sumbitbnt.disabled = false;
+        }
+    }
+    
+
+</script>
 </html>
 {% endblock %}
 {% block widget_area %}
 {% endblock %}
 
+{% comment %} const age_cat = document.querySelector('#FormControlInput{{ colunm }}');
+const family = document.querySelector('#user_pw');
+const sex_female = document.querySelector('#user_pw');
+const sex_male = document.querySelector('#user_pw');
+const embarked_C = document.querySelector('#user_pw');
+const embarked_Q = document.querySelector('#user_pw');
+const embarked_S = document.querySelector('#user_pw');
+
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
 
 
 
