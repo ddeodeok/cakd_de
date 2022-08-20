@@ -1,7 +1,10 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block main_area %}
-
+{% block head_area%}
+    <link rel='stylesheet' href = "{% static 'single_pages/css/landing.css' %}" media = 'screen'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+{% endblock %}
 <body>
     <div class="text-center mb-4">
         <h1>Survival prediction!</h1>
@@ -18,7 +21,52 @@
         </form>
     </div>
 </body>
-<script>
+<!--입력완료에 따른 버튼 활성화 --> 
+<script> 
+    {% for colunm in columns %}
+    const {{ colunm }} = document.querySelector('#FormControlInput{{ colunm }}');
+    {{ colunm }}.addEventListener('keyup', activeEvent);
+    {% endfor %}
+    const sumbitbnt = document.querySelector('#submitbnt');
+    sumbitbnt.disabled = true;
+    function activeEvent() {
+        switch(!(fare_cat.value && age_cat.value && family.value && sex_female.value && sex_male.value && embarked_C.value && embarked_Q.value && embarked_S.value)){     
+            case true : sumbitbnt.disabled = true; break;
+            case false :sumbitbnt.disabled = false; break;
+        }
+    }
+
+</script>
+</html>
+{% endblock %}
+{% block widget_area %}
+{% endblock %}
+
+
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+
+ <!--입력완료에 따른 버튼 활성화 --> 
+{% comment %} <script> 
+    {% for colunm in columns %}
+    const {{ colunm }} = document.querySelector('#FormControlInput{{ colunm }}');
+    {{ colunm }}.addEventListener('keyup', activeEvent);
+    {% endfor %}
+    const sumbitbnt = document.querySelector('#submitbnt');
+    sumbitbnt.disabled = true;
+    function activeEvent() {
+        if(fare_cat.value !== '' && age_cat.value !== '' && family.value !== '' && sex_female.value !== '' && sex_male.value !== '' && embarked_C.value !== '' &&embarked_Q.value!== '' && embarked_S.value !== ''){
+            sumbitbnt.disabled = false; {% endcomment %}
+        {% comment %} }
+    } 
+
+</script> {% endcomment %} 
+
+
+{% comment %} 
     const fare_cat = document.querySelector('#FormControlInputfare_cat');
     fare_cat.addEventListener('keyup', activeEvent);
 
@@ -51,30 +99,7 @@
             sumbitbnt.disabled = false;
         }
     }
-    
-
-</script>
-</html>
-{% endblock %}
-{% block widget_area %}
-{% endblock %}
-
-{% comment %} const age_cat = document.querySelector('#FormControlInput{{ colunm }}');
-const family = document.querySelector('#user_pw');
-const sex_female = document.querySelector('#user_pw');
-const sex_male = document.querySelector('#user_pw');
-const embarked_C = document.querySelector('#user_pw');
-const embarked_Q = document.querySelector('#user_pw');
-const embarked_S = document.querySelector('#user_pw');
-
-
-<div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-
-
-
+     {% endcomment %}
 
 
    {% comment %} <ul>
