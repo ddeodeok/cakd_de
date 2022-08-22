@@ -11,10 +11,13 @@
 <body>
     <div style="text-align:center font-size:50px;">
         <h2>예측 결과</h2>
-        <div class='hide'>  {{ ans }}</div>
-     
+        {% if "{{ ans }}" == "Dead" %}
         <h1><i class="fa-solid fa-face-dizzy"></i></h1>
         <h2> {{ ans }} </h2>
+        {% else %}
+        <h1> {{ ans }} </h1>
+        
+        {% endif %}
     </div>
 </body>
 </html>
