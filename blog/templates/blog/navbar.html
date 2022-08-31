@@ -16,7 +16,7 @@
 </ul> {% endcomment %}
 {% comment %} {% load socialaccount %} {% endcomment %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar bg-light fixed-top">
   <div class="container">
     {% comment %} <li class = "navbar-item active"> {% endcomment %}
       <a class="navbar-brand" href="/">Do It Django</a>
@@ -28,14 +28,14 @@
       <a href="/ml/">ml</a>
       <!-- Button trigger modal -->
       {% if user.is_authenticated %}
-      <li class="nav-item dropdown">
+      <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ user.username }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
         </div>
-      </li>
+      </div>
       {% else %}
       <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#loginModal" >
           login
